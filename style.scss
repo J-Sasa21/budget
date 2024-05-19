@@ -1,0 +1,185 @@
+// Variables
+$primary-color: #1abc9c; // Turquoise
+$secondary-color: #34495e; // Wet Asphalt
+$danger-color: #e74c3c; // Alizarin
+$light-background: #ecf0f1; // Clouds
+$dark-text: #2c3e50; // Midnight Blue
+$light-text: #ffffff; // White
+$border-color: #bdc3c7; // Silver
+$border-radius: 8px;
+$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+$padding: 10px;
+$margin: 10px;
+$transition: 0.3s ease;
+
+// Mixins
+@mixin gradient($color1, $color2) {
+  background: linear-gradient(to right, $color1, $color2);
+}
+
+@mixin animations($name, $duration, $timing-function) {
+  @keyframes #{$name} {
+    @content;
+  }
+  animation: #{$name} $duration $timing-function;
+}
+
+@mixin border-box {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+}
+
+// Base styles
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: $light-background;
+  color: $dark-text;
+  margin: 0;
+  padding: 0;
+  background-image: url(money2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: $light-text;
+  @include gradient($light-background, lighten($light-background, 10%));
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+header {
+  text-align: center;
+  h1 {
+    color: $primary-color;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+}
+
+.add-item {
+  margin-bottom: 20px;
+  padding: $padding;
+  background: lighten($light-background, 5%);
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $padding;
+    div {
+      flex: 1 1 45%;
+      min-width: 200px;
+      label {
+        display: block;
+        margin-bottom: 0.5em;
+        font-weight: bold;
+      }
+      input {
+        width: 100%;
+        padding: $padding;
+        @include border-box;
+        transition: border-color $transition, box-shadow $transition;
+        &:focus {
+          border-color: darken($border-color, 10%);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+    button {
+      flex: 1 1 100%;
+      padding: $padding;
+      margin-top: $margin;
+      background: $primary-color;
+      color: $light-text;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: background-color $transition;
+      &:hover {
+        background: darken($primary-color, 10%);
+      }
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 5px lighten($primary-color, 20%);
+      }
+    }
+  }
+}
+
+.budget-summary {
+  display: flex;
+  flex-direction: column;
+  gap: $margin;
+  text-align: center;
+  div {
+    padding: $padding;
+    border-radius: $border-radius;
+    font-size: 1.2em;
+    &.total-budget {
+      background: $secondary-color;
+      color: $light-text;
+    }
+    &.total-income {
+      background: lighten($primary-color, 10%);
+      color: $light-text;
+    }
+    &.total-expense {
+      background: $danger-color;
+      color: $light-text;
+    }
+  }
+}
+
+.income-list,
+.expense-list {
+  margin: 20px 0;
+  h2 {
+    color: $secondary-color;
+    border-bottom: 2px solid $primary-color;
+    padding-bottom: 0.5em;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5px 0;
+      padding: $padding;
+      @include border-box;
+      transition: background-color $transition, color $transition;
+      &:hover {
+        background-color: lighten($light-background, 10%);
+      }
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: $primary-color;
+        &:hover {
+          color: darken($primary-color, 10%);
+        }
+        &:focus {
+          outline: 3px solid lighten($primary-color, 10%);
+        }
+        &.delete {
+          color: $danger-color;
+          &:hover {
+            color: darken($danger-color, 10%);
+          }
+          &:focus {
+            outline: 3px solid lighten($danger-color, 10%);
+          }
+        }
+      }
+    }
+  }
+}

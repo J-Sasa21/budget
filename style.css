@@ -1,0 +1,164 @@
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #ecf0f1;
+  color: #2c3e50;
+  margin: 0;
+  padding: 0;
+  background-image: url(money2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  background: linear-gradient(to right, #ecf0f1, white);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  text-align: center;
+}
+header h1 {
+  color: #1abc9c;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.add-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #fbfcfc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.add-item form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.add-item form div {
+  flex: 1 1 45%;
+  min-width: 200px;
+}
+.add-item form div label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+.add-item form div input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.add-item form div input:focus {
+  border-color: #a1aab0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.add-item form button {
+  flex: 1 1 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #1abc9c;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.add-item form button:hover {
+  background: #148f77;
+}
+.add-item form button:focus {
+  outline: none;
+  box-shadow: 0 0 5px #55e7ca;
+}
+
+.budget-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+.budget-summary div {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1.2em;
+}
+.budget-summary div.total-budget {
+  background: #34495e;
+  color: #ffffff;
+}
+.budget-summary div.total-income {
+  background: #28e1bd;
+  color: #ffffff;
+}
+.budget-summary div.total-expense {
+  background: #e74c3c;
+  color: #ffffff;
+}
+
+.income-list,
+.expense-list {
+  margin: 20px 0;
+}
+.income-list h2,
+.expense-list h2 {
+  color: #34495e;
+  border-bottom: 2px solid #1abc9c;
+  padding-bottom: 0.5em;
+}
+.income-list ul,
+.expense-list ul {
+  list-style: none;
+  padding: 0;
+}
+.income-list ul li,
+.expense-list ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.income-list ul li:hover,
+.expense-list ul li:hover {
+  background-color: white;
+}
+.income-list ul li button,
+.expense-list ul li button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1abc9c;
+}
+.income-list ul li button:hover,
+.expense-list ul li button:hover {
+  color: #148f77;
+}
+.income-list ul li button:focus,
+.expense-list ul li button:focus {
+  outline: 3px solid #28e1bd;
+}
+.income-list ul li button.delete,
+.expense-list ul li button.delete {
+  color: #e74c3c;
+}
+.income-list ul li button.delete:hover,
+.expense-list ul li button.delete:hover {
+  color: #d62c1a;
+}
+.income-list ul li button.delete:focus,
+.expense-list ul li button.delete:focus {
+  outline: 3px solid #ed7669;
+}/*# sourceMappingURL=style.css.map */
